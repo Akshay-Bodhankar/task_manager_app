@@ -207,6 +207,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     const SizedBox(height: 12),
 
+                    // Gender dropdown
+                    DropdownButtonFormField<String>(
+                      value: _gender,
+                      decoration: const InputDecoration(labelText: 'Gender'),
+                      items: const [
+                        DropdownMenuItem(value: 'Male', child: Text('Male')),
+                        DropdownMenuItem(
+                          value: 'Female',
+                          child: Text('Female'),
+                        ),
+                        DropdownMenuItem(value: 'Other', child: Text('Other')),
+                      ],
+                      onChanged: (val) => setState(() => _gender = val),
+                      validator: (v) =>
+                      v == null ? 'Please select gender' : null,
+                    ),
+
+                    const SizedBox(height: 14),
+
                     // Date of Birth
                     Row(
                       children: [
@@ -227,24 +246,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                       ],
-                    ),
-                    const SizedBox(height: 12),
-
-                    // Gender dropdown
-                    DropdownButtonFormField<String>(
-                      value: _gender,
-                      decoration: const InputDecoration(labelText: 'Gender'),
-                      items: const [
-                        DropdownMenuItem(value: 'Male', child: Text('Male')),
-                        DropdownMenuItem(
-                          value: 'Female',
-                          child: Text('Female'),
-                        ),
-                        DropdownMenuItem(value: 'Other', child: Text('Other')),
-                      ],
-                      onChanged: (val) => setState(() => _gender = val),
-                      validator: (v) =>
-                          v == null ? 'Please select gender' : null,
                     ),
 
                     const SizedBox(height: 16),
